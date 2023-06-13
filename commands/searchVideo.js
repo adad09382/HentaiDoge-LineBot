@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import template from "../templates/lineFlexMessage.js";
 // 製作一個計時器
 const waitForTimeOut = (t) =>
   new Promise((resolve) =>
@@ -10,6 +11,8 @@ const waitForTimeOut = (t) =>
 
 export default async (event) => {
   try {
+    //flex消息模板，bubble
+    const bubble = JSON.parse(JSON.stringify(template));
     //將收到的信息存到text
     let text = event.message.text;
     console.log(text);
@@ -47,11 +50,18 @@ export default async (event) => {
         await page.waitForSelector("#player"); //等待該選擇器出現
         //獲得影片圖片
         const imageUrl = await page.$eval("#player", (el) => el.poster);
-        event.reply(`
-      影片標題：${extractedTitle}
-      影片網址：${videoLink}
-      影片圖片：${imageUrl}
-      `);
+
+        //修改bubble 預設值
+        bubble.body.contents[0].url = imageUrl; //改JSON圖片
+        bubble.body.contents[1].contents[0].contents[0].text = extractedTitle; //改JSON標題
+        bubble.body.contents[1].contents[1].contents[1].contents[1].contents[1].uri =
+          videoLink; //改JSON LINK
+
+        event.reply({
+          type: "flex",
+          altText: extractedTitle,
+          contents: bubble,
+        });
         console.log(`
       影片標題：${extractedTitle}
       影片網址：${videoLink}

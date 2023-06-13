@@ -30,6 +30,6 @@ bot.on("message", (event) => {
 });
 
 // 設定機器人監聽 port
-bot.listen("/", process.env.PORT || 3050, () => {
-  console.log("Serve在3050上running");
+bot.listen("/", process.env.PORT || 4040, () => {
+  console.log("Serve在4040上running");
 });
