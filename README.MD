@@ -11,7 +11,7 @@
 ### 使用範例：
 
 在聊天室窗輸入 "/s 番號"，即可收到回傳內容，如下圖：
-![img]()
+![img](https://github.com/adad09382/HentaiDoge-LineBot/blob/master/READMEIMG/HentaiDoge.jpg)
 
 若在資料來源站查無番號的話，則收到回覆查無此番
 
