@@ -52,9 +52,10 @@ export default async (event) => {
         const imageUrl = await page.$eval("#player", (el) => el.poster);
 
         //修改bubble 預設值
-        bubble.body.contents[0].url = imageUrl; //改JSON圖片
-        bubble.body.contents[1].contents[0].contents[0].text = extractedTitle; //改JSON標題
-        bubble.body.contents[1].contents[1].contents[1].contents[1].contents[1].uri =
+        bubble.contents[0].body.contents[0].url = imageUrl; //改JSON圖片
+        bubble.contents[0].body.contents[1].contents[0].contents[0].text =
+          extractedTitle; //改JSON標題
+        bubble.contents[0].body.contents[1].contents[1].contents[1].action.uri =
           videoLink; //改JSON LINK
 
         event.reply({

@@ -13,7 +13,7 @@ export default {
             size: "full",
             aspectMode: "cover",
             aspectRatio: "2:3",
-            gravity: "center",
+            gravity: "top",
           },
           {
             type: "box",
@@ -25,8 +25,8 @@ export default {
                 contents: [
                   {
                     type: "text",
-                    text: "影片標題",
-                    size: "md",
+                    text: "這是標題",
+                    size: "xl",
                     color: "#ffffff",
                     weight: "bold",
                   },
@@ -48,21 +48,21 @@ export default {
                       },
                       {
                         type: "text",
-                        text: "Watch now",
+                        text: "Watch Video",
                         color: "#ffffff",
                         flex: 0,
                         offsetTop: "-2px",
-                        action: {
-                          type: "uri",
-                          label: "action",
-                          uri: "https://www.google.com.tw/",
-                        },
                       },
                       {
                         type: "filler",
                       },
                     ],
                     spacing: "sm",
+                    action: {
+                      type: "uri",
+                      label: "action",
+                      uri: "https://www.baidu.com/",
+                    },
                   },
                   {
                     type: "filler",
@@ -80,7 +80,7 @@ export default {
             offsetBottom: "0px",
             offsetStart: "0px",
             offsetEnd: "0px",
-            backgroundColor: "#03303Acc",
+            backgroundColor: "#333333AA",
             paddingAll: "20px",
             paddingTop: "18px",
           },
